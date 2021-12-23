@@ -34,33 +34,37 @@ THE SOFTWARE.
 			
 			<j:choose>
 				<j:when test="${it.allowMultiNodeSelection == true}">
-					<select name="value" multiple="multiple" size="${it.allowedNodesOrAll.size()}">
-						<j:forEach var="aNode" items="${it.allowedNodesOrAll}"
-							varStatus="loop">
-							<j:choose>
-								<j:when test="${it.defaultSlaves.contains(aNode)}">
-									<option value="${aNode}" selected="selected">${aNode}</option>
-								</j:when>
-								<j:otherwise>
-									<option value="${aNode}">${aNode}</option>
-								</j:otherwise>
-							</j:choose>
-						</j:forEach>
-					</select>
+					<div class="jenkins-select">
+						<select name="value" multiple="multiple" size="${it.allowedNodesOrAll.size()}">
+							<j:forEach var="aNode" items="${it.allowedNodesOrAll}"
+									   varStatus="loop">
+								<j:choose>
+									<j:when test="${it.defaultSlaves.contains(aNode)}">
+										<option value="${aNode}" selected="selected">${aNode}</option>
+									</j:when>
+									<j:otherwise>
+										<option value="${aNode}">${aNode}</option>
+									</j:otherwise>
+								</j:choose>
+							</j:forEach>
+						</select>
+					</div>
 				</j:when>
 				<j:otherwise>
-					<select name="value">
-						<j:forEach var="aNode" items="${it.allowedNodesOrAll}" varStatus="loop">
-							<j:choose>
-								<j:when test="${it.defaultSlaves.contains(aNode)}">
-									<option value="${aNode}" selected="selected">${aNode}</option>
-								</j:when>
-								<j:otherwise>
-									<option value="${aNode}">${aNode}</option>
-								</j:otherwise>
-							</j:choose>
-						</j:forEach>
-					</select>
+					<div class="jenkins-select">
+						<select name="value">
+							<j:forEach var="aNode" items="${it.allowedNodesOrAll}" varStatus="loop">
+								<j:choose>
+									<j:when test="${it.defaultSlaves.contains(aNode)}">
+										<option value="${aNode}" selected="selected">${aNode}</option>
+									</j:when>
+									<j:otherwise>
+										<option value="${aNode}">${aNode}</option>
+									</j:otherwise>
+								</j:choose>
+							</j:forEach>
+						</select>
+					</div>
 				</j:otherwise>
 			</j:choose>
 		</div>
